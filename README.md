@@ -1,4 +1,4 @@
-# SEGA Megadrive/Genesis for MiSTer.
+# SEGA Megadrive/Genesis for DE10-Standard Edition of MiSTer.
 
 This is the port of fpgagen core.
 
@@ -20,3 +20,5 @@ If this option is enabled then region will be automatically switched upon loadin
 * BIN -> JP
 * GEN -> US
 * MD -> EU
+
+This project brought to you by http://www.modernhackers.com
