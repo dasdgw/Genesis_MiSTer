@@ -107,7 +107,7 @@ module sys_top
 	output wire   AUD_DACDAT,   // Audio CODEC DAC Data
    inout wire    AUD_BCLK,     // Audio CODEC Bit-Stream Clock
    output wire   AUD_XCK,      // Audio CODEC Chip Clock
-
+	
 	// I2C
    inout wire    I2C_SDAT,     // I2C Data
    output wire   I2C_SCLK,     // I2C Clock
@@ -159,6 +159,7 @@ module sys_top
 // DE10-Stanard / DE1-SoC / Arrow SoCKit VGA mode
 assign SW[3] = 1'b0;		//necessary for VGA mode
 assign VGA_EN = 1'b0;		//enable VGA mode when VGA_EN is low
+
 
 //////////////////////  Secondary SD  ///////////////////////////////////
 
