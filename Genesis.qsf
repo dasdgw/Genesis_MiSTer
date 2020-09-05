@@ -26,6 +26,7 @@ set_location_assignment PIN_V25 -to KEY[0]
 set_location_assignment PIN_AC28 -to KEY[1]
 set_location_assignment PIN_AD7 -to LED[0]
 set_location_assignment PIN_W25 -to SW[0]
+set_global_assignment -name PRE_FLOW_SCRIPT_FILE "quartus_sh:sys/build_id.tcl"
 source sys/sys_analog.tcl
 set_location_assignment PIN_AG5 -to VGA_R[0]
 set_location_assignment PIN_AA12 -to VGA_R[1]
