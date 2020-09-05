@@ -10,7 +10,7 @@
 
 set_global_assignment -name TOP_LEVEL_ENTITY sys_top
 
-set_global_assignment -name LAST_QUARTUS_VERSION "17.0.0 Standard Edition"
+set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Lite Edition"
 
 set_global_assignment -name GENERATE_RBF_FILE ON
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
@@ -18,7 +18,8 @@ set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
 set_global_assignment -name SMART_RECOMPILE ON
 set_global_assignment -name FITTER_EFFORT "STANDARD FIT"
 
-source sys/sys.tcl
+#source sys/sys.tcl
+set_global_assignment -name PRE_FLOW_SCRIPT_FILE "quartus_sh:sys/build_id.tcl"
 set_location_assignment PIN_AF14 -to FPGA_CLK1_50
 set_location_assignment PIN_AA16 -to FPGA_CLK2_50
 set_location_assignment PIN_Y26 -to FPGA_CLK3_50
@@ -26,7 +27,6 @@ set_location_assignment PIN_V25 -to KEY[0]
 set_location_assignment PIN_AC28 -to KEY[1]
 set_location_assignment PIN_AD7 -to LED[0]
 set_location_assignment PIN_W25 -to SW[0]
-set_global_assignment -name PRE_FLOW_SCRIPT_FILE "quartus_sh:sys/build_id.tcl"
 source sys/sys_analog.tcl
 set_location_assignment PIN_AG5 -to VGA_R[0]
 set_location_assignment PIN_AA12 -to VGA_R[1]
@@ -66,33 +66,6 @@ set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
 set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
 set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
 set_global_assignment -name ACTIVE_SERIAL_CLOCK FREQ_100MHZ
-set_global_assignment -name VERILOG_FILE sys/I2C_Controller.v
-set_global_assignment -name VERILOG_FILE sys/I2C_AV_Config.v
-set_global_assignment -name VERILOG_FILE sys/audio_top.v
-set_global_assignment -name VERILOG_FILE sys/audio_shifter.v
-set_global_assignment -name CDF_FILE jtag.cdf
-set_global_assignment -name QIP_FILE sys/sys.qip
-set_global_assignment -name QIP_FILE FX68K/fx68k.qip
-set_global_assignment -name QIP_FILE T80/T80.qip
-set_global_assignment -name QIP_FILE jt12/jt12.qip
-set_global_assignment -name QIP_FILE jt89/jt89.qip
-set_global_assignment -name QIP_FILE SVP/SVP.qip
-set_global_assignment -name SYSTEMVERILOG_FILE cheatcodes.sv
-set_global_assignment -name SYSTEMVERILOG_FILE EEPROM_STM95.sv
-set_global_assignment -name VHDL_FILE bram.vhd
-set_global_assignment -name VHDL_FILE mlab.vhd
-set_global_assignment -name SYSTEMVERILOG_FILE ddram.sv
-set_global_assignment -name VERILOG_FILE audio_iir_filter.v
-set_global_assignment -name VERILOG_FILE genesis_lpf.v
-set_global_assignment -name VHDL_FILE vdp_common.vhd
-set_global_assignment -name VHDL_FILE vdp.vhd
-set_global_assignment -name SYSTEMVERILOG_FILE gen_io.sv
-set_global_assignment -name SYSTEMVERILOG_FILE teamplayer.sv
-set_global_assignment -name VERILOG_FILE fourway.v
-set_global_assignment -name SYSTEMVERILOG_FILE cofi.sv
-set_global_assignment -name SYSTEMVERILOG_FILE multitap.sv
-set_global_assignment -name SYSTEMVERILOG_FILE system.sv
-set_global_assignment -name SYSTEMVERILOG_FILE Genesis.sv
 set_location_assignment PIN_AC27 -to AUD_ADCDAT
 set_location_assignment PIN_AG30 -to AUD_ADCLRCK
 set_location_assignment PIN_AE7 -to AUD_BCLK
@@ -275,4 +248,34 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[1]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[0]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_SYNC_N
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_VS
+set_global_assignment -name VERILOG_FILE sys/I2C_Controller.v
+set_global_assignment -name VERILOG_FILE sys/I2C_AV_Config.v
+set_global_assignment -name VERILOG_FILE sys/audio_top.v
+set_global_assignment -name VERILOG_FILE sys/audio_shifter.v
+set_global_assignment -name CDF_FILE jtag.cdf
+set_global_assignment -name QIP_FILE sys/sys.qip
+set_global_assignment -name QIP_FILE sys/pll.qip
+set_global_assignment -name QIP_FILE sys/pll_hdmi.qip
+set_global_assignment -name QIP_FILE sys/pll_cfg.qip
+set_global_assignment -name QIP_FILE FX68K/fx68k.qip
+set_global_assignment -name QIP_FILE T80/T80.qip
+set_global_assignment -name QIP_FILE jt12/jt12.qip
+set_global_assignment -name QIP_FILE jt89/jt89.qip
+set_global_assignment -name QIP_FILE SVP/SVP.qip
+set_global_assignment -name SYSTEMVERILOG_FILE cheatcodes.sv
+set_global_assignment -name SYSTEMVERILOG_FILE EEPROM_STM95.sv
+set_global_assignment -name VHDL_FILE bram.vhd
+set_global_assignment -name VHDL_FILE mlab.vhd
+set_global_assignment -name SYSTEMVERILOG_FILE ddram.sv
+set_global_assignment -name VERILOG_FILE audio_iir_filter.v
+set_global_assignment -name VERILOG_FILE genesis_lpf.v
+set_global_assignment -name VHDL_FILE vdp_common.vhd
+set_global_assignment -name VHDL_FILE vdp.vhd
+set_global_assignment -name SYSTEMVERILOG_FILE gen_io.sv
+set_global_assignment -name SYSTEMVERILOG_FILE teamplayer.sv
+set_global_assignment -name VERILOG_FILE fourway.v
+set_global_assignment -name SYSTEMVERILOG_FILE cofi.sv
+set_global_assignment -name SYSTEMVERILOG_FILE multitap.sv
+set_global_assignment -name SYSTEMVERILOG_FILE system.sv
+set_global_assignment -name SYSTEMVERILOG_FILE Genesis.sv
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
