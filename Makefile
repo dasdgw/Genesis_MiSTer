@@ -10,6 +10,8 @@ endif
 
 build :
 	quartus_sh --flow compile Genesis -c Genesis
+upgrade :
+	quartus_sh --ip_upgrade -mode all Genesis
 clean :
 	$(RMALL) *.bak *.orig *.rej  *~ *.qws *.ppf *.ddb *.csv *.cmp *.sip *.spd \
 	*.bsf *.f *.sopcinfo *.xml *.cdf *.rpt build_id.v c5_pin_model_dump.txt \
