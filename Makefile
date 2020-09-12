@@ -10,8 +10,13 @@ endif
 
 build :
 	quartus_sh --flow compile Genesis -c Genesis
+
 upgrade :
 	quartus_sh --ip_upgrade -mode all Genesis
+
+archive :
+	quartus_sh --archive Genesis
+
 clean :
 	$(RMALL) *.bak *.orig *.rej  *~ *.qws *.ppf *.ddb *.csv *.cmp *.sip *.spd \
 	*.bsf *.f *.sopcinfo *.xml *.cdf *.rpt build_id.v c5_pin_model_dump.txt \
@@ -19,3 +24,5 @@ clean :
 	$(RMDIR) db incremental_db output_files simulation greybox_tmp hc_output \
 	.qsys_edit hps_isw_handoff sys\.qsys_edit sys\vip
 	find . -name '*_sim' -exec $(RMDIR) {} \;
+
+# quartus_dse --use-archive-file /home/dasdgw/fpga/sockit/mister_fpga/Genesis_MiSTer/Genesis.qar --time-limit 24h0m --host 127.0.0.1 --revision Genesis /home/dasdgw/fpga/sockit/mister_fpga/Genesis_MiSTer/Genesis.qpf --use-dse-file Genesis.dse
